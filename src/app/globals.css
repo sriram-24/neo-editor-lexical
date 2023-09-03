@@ -1,6 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* @tailwind base; */
+/* @tailwind components;
+@tailwind utilities; */
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -15,7 +15,7 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
-
+/* 
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -24,4 +24,31 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+} */
+
+.neo__editor{
+  border: 2px solid gray;
+  border-radius: 8px;
+
+}
+
+.neo__toolbar{
+  display: flex;
+  border-bottom: 2px solid gray;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  padding: 0px 8px;
+
+}
+
+.neo__dropdown{
+  background-color: aliceblue;
+}
+
+.neo__dropdown__wrapper{
+  padding: 0;
+}
+
+.neo__editor__content:focus-visible{
+  outline: none;
 }
