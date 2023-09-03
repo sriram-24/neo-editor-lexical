@@ -6,6 +6,7 @@ import { $getSelection, $isRangeSelection, COMMAND_PRIORITY_CRITICAL, SELECTION_
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { HeadingNode } from '@lexical/rich-text'
 import { Option } from "@/typings/pluginPorps";
+import Divider from "@/components/Divider";
 
 export const ToolBarPlugin = () : JSX.Element => {
     const [headingOption,setHeadingOption] = useState<Option>(Headings[0]);
@@ -50,7 +51,8 @@ export const ToolBarPlugin = () : JSX.Element => {
             <HeadingsPlugin 
                 selectedOption={headingOption} 
                 setSelectedOption={setHeadingOption}                
-            /> 
+            />
+            <Divider  />  
         </div>
     );
 }

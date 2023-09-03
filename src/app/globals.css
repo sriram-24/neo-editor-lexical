@@ -3,16 +3,15 @@
 @tailwind utilities; */
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --primary-color-rgb : 23, 107, 135;
+  --secondary-color-rgb : 238, 238, 238;
+  --debug-background-rgb : 18, 18, 18;
+
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    
   }
 }
 /* 
@@ -27,14 +26,14 @@ body {
 } */
 
 .neo__editor{
-  border: 2px solid gray;
+  border: 2px solid rgb(var(--secondary-color-rgb));
   border-radius: 8px;
 
 }
 
 .neo__toolbar{
   display: flex;
-  border-bottom: 2px solid gray;
+  border-bottom: 2px solid rgb(var(--secondary-color-rgb));
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   padding: 0px 8px;
@@ -43,12 +42,39 @@ body {
 
 .neo__dropdown{
   background-color: aliceblue;
+  margin: 4px 0px;
+  border-radius: 10px;
+}
+
+.neo__dropdown__item{
+  padding: 8px 12px;
+  border-radius: 8px;
+  
 }
 
 .neo__dropdown__wrapper{
   padding: 0;
+  
+}
+
+.neo__editor__content{
+  padding: 8px;
+  margin: 0px 8px;
 }
 
 .neo__editor__content:focus-visible{
   outline: none;
+}
+
+.neo__divider{
+  border-left: 2px solid rgb(var(--secondary-color-rgb));
+  margin: 6px 0px 6px 4px;
+}
+
+.neo__debugtree{
+  background-color: rgb(var(--debug-background-rgb));
+  color: white;
+  padding: 20px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }

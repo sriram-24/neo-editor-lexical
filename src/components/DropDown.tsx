@@ -38,6 +38,7 @@ function DropDown( { options, executeAction, selectedOption, setSelectedOption, 
             aria-label={selectedOption.value.toString()}
             aria-expanded={open ? 'true' : undefined}
             onClick={handleClickListItem}
+            className='neo__dropdown__item'
         >
             <ListItemText
             primary={selectedOption.value}

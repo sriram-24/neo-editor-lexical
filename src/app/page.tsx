@@ -48,12 +48,12 @@ export default function Home() {
         return(
             <TreeView
                 editor={editor} 
-                treeTypeButtonClassName={''} 
+                treeTypeButtonClassName={'neo__debugtree__exportdom'} 
                 timeTravelButtonClassName={''} 
                 timeTravelPanelButtonClassName={''} 
                 timeTravelPanelClassName={''} 
                 timeTravelPanelSliderClassName={''} 
-                viewClassName={''} />
+                viewClassName={'neo__debugtree'} />
         );
     }
 
@@ -72,7 +72,7 @@ export default function Home() {
                 <OnChangePlugin onChange={onChange} /> 
                 <AutoFocusPlugin /> 
                 <HistoryPlugin />
-                <TreeViewPlugin />
+                <TreeViewPlugin  />
             </LexicalComposer>
         </div> 
     </>
