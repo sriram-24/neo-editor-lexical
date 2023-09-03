@@ -1,5 +1,3 @@
-import DropDown from "@/components/DropDown";
-import { Button } from "@mui/material";
 import { Headings, HeadingsPlugin } from "./HeadingsPlugin";
 import { useCallback, useEffect, useState } from "react";
 import { $getSelection, $isRangeSelection, COMMAND_PRIORITY_CRITICAL, SELECTION_CHANGE_COMMAND, LexicalEditor, TextNode, LexicalNode, ParagraphNode } from "lexical";
@@ -7,9 +5,12 @@ import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext
 import { HeadingNode } from '@lexical/rich-text'
 import { Option } from "@/typings/pluginPorps";
 import Divider from "@/components/Divider";
+import { FontSizePlugin, FontSizes } from "./FontSizePlugin";
+import { $getSelectionStyleValueForProperty } from '@lexical/selection'
 
 export const ToolBarPlugin = () : JSX.Element => {
     const [headingOption,setHeadingOption] = useState<Option>(Headings[0]);
+    const [selectedFontSize,setFontsize] = useState<Option>(FontSizes[3]);
     const [editor] = useLexicalComposerContext();
     const [activeEditor, setActiveEditor] = useState<LexicalEditor>() 
 
@@ -18,6 +19,10 @@ export const ToolBarPlugin = () : JSX.Element => {
         if($isRangeSelection(selection)){
             const anchorNode : TextNode = selection.anchor.getNode()
             const parentNode  = anchorNode.getParent();
+            console.log(anchorNode);
+            
+            // Update toolbar if selection is heading node.
+
             if (parentNode instanceof HeadingNode){
                 
                 const Heading = Headings.find(value => value.key ==parentNode.getTag())
@@ -29,6 +34,15 @@ export const ToolBarPlugin = () : JSX.Element => {
                 setHeadingOption(Headings[0])
             }
             
+            // Update toolbar if selection has font size.
+            if($getSelectionStyleValueForProperty(selection,'font-size', '15px') !== '15px'){
+                const fontSize  = FontSizes.find(fontSize => $getSelectionStyleValueForProperty(selection,'font-size', '15px') === fontSize.key.toString() )
+                if(fontSize){
+                    setFontsize(fontSize)
+                }
+            }else{
+                setFontsize(FontSizes[3])
+            }
         }
     },[]);
     useEffect(() => {
@@ -52,7 +66,11 @@ export const ToolBarPlugin = () : JSX.Element => {
                 selectedOption={headingOption} 
                 setSelectedOption={setHeadingOption}                
             />
-            <Divider  />  
+            <Divider  /> 
+            <FontSizePlugin  
+                selectedOption={selectedFontSize}
+                setSelectedOption={setFontsize}
+            />  
         </div>
     );
 }

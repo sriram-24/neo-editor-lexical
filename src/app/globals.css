@@ -68,7 +68,7 @@ body {
 
 .neo__divider{
   border-left: 2px solid rgb(var(--secondary-color-rgb));
-  margin: 6px 0px 6px 4px;
+  margin: 6px 4px 6px 4px;
 }
 
 .neo__debugtree{

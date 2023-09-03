@@ -1,5 +1,5 @@
 import DropDown from "@/components/DropDown";
-import { HeadingPluginProps, Option } from "@/typings/pluginPorps";
+import { NeoPluginProps, Option } from "@/typings/pluginPorps";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { $getSelection, $isRangeSelection, $createParagraphNode } from 'lexical'
 import { $setBlocksType } from '@lexical/selection'
@@ -40,7 +40,7 @@ export const Headings : Array<Option>  = [
     
 
 
-export const HeadingsPlugin = ({selectedOption, setSelectedOption} : HeadingPluginProps) : JSX.Element => { 
+export const HeadingsPlugin = ({selectedOption, setSelectedOption} : NeoPluginProps) : JSX.Element => { 
    
     const [ editor ] = useLexicalComposerContext();
     const onClick = (e : React.MouseEvent, selectedOption : Option) : void =>{

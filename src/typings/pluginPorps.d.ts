@@ -21,7 +21,7 @@ export interface Option{
     value : String
 }
 
-export interface HeadingPluginProps { 
+export interface NeoPluginProps { 
     selectedOption : Option,
     setSelectedOption : Function
  }
