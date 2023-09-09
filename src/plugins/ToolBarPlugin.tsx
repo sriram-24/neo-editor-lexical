@@ -7,70 +7,95 @@ import { Option } from "@/typings/pluginPorps";
 import Divider from "@/components/Divider";
 import { FontSizePlugin, FontSizes } from "./FontSizePlugin";
 import { $getSelectionStyleValueForProperty } from '@lexical/selection'
+import { BoldTextPlugin } from "./BoldTextPlugin";
+import { mergeRegister } from '@lexical/utils'
+import { ItalicsPlugin } from "./ItalicsPlugin";
+import { UnderLinePlugin } from "./UnderlinePlugin";
 
-export const ToolBarPlugin = () : JSX.Element => {
-    const [headingOption,setHeadingOption] = useState<Option>(Headings[0]);
-    const [selectedFontSize,setFontsize] = useState<Option>(FontSizes[3]);
+
+export const ToolBarPlugin = (): JSX.Element => {
+    const [lexEditor] = useLexicalComposerContext();
+    const [headingOption, setHeadingOption] = useState<Option>(Headings[0]);
+    const [selectedFontSize, setFontsize] = useState<Option>(FontSizes[3]);
     const [editor] = useLexicalComposerContext();
-    const [activeEditor, setActiveEditor] = useState<LexicalEditor>() 
+    const [activeEditor, setActiveEditor] = useState<LexicalEditor>(lexEditor)
+    const [isBold, setIsBold] = useState<Boolean>(false);
+    const [isItalics, setIsItalics] = useState<Boolean>(false);
+    const [isUnderline, setIsUnderline] = useState<Boolean>(false);
 
-    const updateToolbar = useCallback(()=>{
+    const updateToolbar = useCallback(() => {
         const selection = $getSelection()
-        if($isRangeSelection(selection)){
-            const anchorNode : TextNode = selection.anchor.getNode()
-            const parentNode  = anchorNode.getParent();
-            console.log(anchorNode);
-            
+        if ($isRangeSelection(selection)) {
+
+            // update bold selection 
+            setIsBold(selection.hasFormat('bold'));
+            setIsItalics(selection.hasFormat('italic'));
+            const anchorNode: TextNode = selection.anchor.getNode()
+            const parentNode = anchorNode.getParent();
+            console.log(anchorNode, parentNode);
+
             // Update toolbar if selection is heading node.
 
-            if (parentNode instanceof HeadingNode){
-                
-                const Heading = Headings.find(value => value.key ==parentNode.getTag())
-                if(Heading){
+            if (parentNode instanceof HeadingNode) {
+
+                const Heading = Headings.find(value => value.key == parentNode.getTag())
+                if (Heading) {
                     setHeadingOption(Heading)
                 }
             }
-            if(anchorNode instanceof ParagraphNode){
+            if (anchorNode instanceof ParagraphNode) {
                 setHeadingOption(Headings[0])
             }
-            
+
             // Update toolbar if selection has font size.
-            if($getSelectionStyleValueForProperty(selection,'font-size', '15px') !== '15px'){
-                const fontSize  = FontSizes.find(fontSize => $getSelectionStyleValueForProperty(selection,'font-size', '15px') === fontSize.key.toString() )
-                if(fontSize){
+            if ($getSelectionStyleValueForProperty(selection, 'font-size', '15px') !== '15px') {
+                const fontSize = FontSizes.find(fontSize => $getSelectionStyleValueForProperty(selection, 'font-size', '15px') === fontSize.key.toString())
+                if (fontSize) {
                     setFontsize(fontSize)
                 }
-            }else{
+            } else {
                 setFontsize(FontSizes[3])
             }
-        }
-    },[]);
-    useEffect(() => {
-        return editor.registerCommand(
-          SELECTION_CHANGE_COMMAND,
-          (_payload, newEditor) => {
-            updateToolbar();
-            setActiveEditor(newEditor);
-            return false;
-          },
-          COMMAND_PRIORITY_CRITICAL,
-        );
-      }, [editor, updateToolbar]);
 
-    return(
-        
-        <div 
+        }
+    }, []);
+    useEffect(() => {
+
+        return mergeRegister(
+            editor.registerCommand(
+                SELECTION_CHANGE_COMMAND,
+                (_payload, newEditor) => {
+                    updateToolbar();
+                    setActiveEditor(newEditor);
+                    return false;
+                },
+                COMMAND_PRIORITY_CRITICAL,
+            ),
+            activeEditor.registerUpdateListener(({ editorState }) => {
+                editorState.read(() => {
+                    updateToolbar();
+                })
+            }
+            ))
+    }, [editor, updateToolbar]);
+
+    return (
+
+        <div
             className="neo__toolbar"
         >
-            <HeadingsPlugin 
-                selectedOption={headingOption} 
-                setSelectedOption={setHeadingOption}                
+            <HeadingsPlugin
+                selectedOption={headingOption}
+                setSelectedOption={setHeadingOption}
             />
-            <Divider  /> 
-            <FontSizePlugin  
+            <Divider />
+            <FontSizePlugin
                 selectedOption={selectedFontSize}
                 setSelectedOption={setFontsize}
-            />  
+            />
+            <BoldTextPlugin selectedBoolean={isBold} setSelectedOption={setIsBold} />
+            <ItalicsPlugin selectedBoolean={isItalics} setSelectedOption={setIsItalics} />
+            <UnderLinePlugin selectedBoolean={isUnderline} setSelectedOption={setIsUnderline} />
         </div>
     );
 }

@@ -1,12 +1,13 @@
 /* @tailwind base; */
 /* @tailwind components;
 @tailwind utilities; */
+/* https://coolors.co/9381ff-b8b8ff-f8f7ff-ffeedd-ffd8be */
 
 :root {
-  --primary-color-rgb : 23, 107, 135;
-  --secondary-color-rgb : 238, 238, 238;
+  --primary-color-rgb : 147, 129, 255;
+  --secondary-color-rgb : 184, 184, 255;
   --debug-background-rgb : 18, 18, 18;
-
+  --background : 248, 247, 255;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -77,4 +78,18 @@ body {
   padding: 20px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
+}
+
+.neo__button{
+  color: rgba(var(--secondary-color-rgb),1);
+  margin: 4px 8px;
+}
+
+.neo__button__selected{
+  color: rgb(var(--primary-color-rgb));
+  background-color: rgba(var(--primary-color-rgb),0.1);
+}
+
+.neo__textunderline{
+  text-decoration: underline;
 }
