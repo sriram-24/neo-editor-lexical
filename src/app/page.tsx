@@ -28,7 +28,8 @@ export default function Home() {
 
     const theme = {
         text: {
-            underline: 'neo__textunderline'
+            underline: 'neo__textunderline',
+            code : 'neo__textcodeblock'
         }
     }
 

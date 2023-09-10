@@ -11,6 +11,7 @@ import { BoldTextPlugin } from "./BoldTextPlugin";
 import { mergeRegister } from '@lexical/utils'
 import { ItalicsPlugin } from "./ItalicsPlugin";
 import { UnderLinePlugin } from "./UnderlinePlugin";
+import { CodeBlockPlugin } from "./CodeBlockPlugin";
 
 
 export const ToolBarPlugin = (): JSX.Element => {
@@ -22,6 +23,7 @@ export const ToolBarPlugin = (): JSX.Element => {
     const [isBold, setIsBold] = useState<Boolean>(false);
     const [isItalics, setIsItalics] = useState<Boolean>(false);
     const [isUnderline, setIsUnderline] = useState<Boolean>(false);
+    const [isCodeBlock, setIsCodeBlock] = useState<Boolean>(false);
 
     const updateToolbar = useCallback(() => {
         const selection = $getSelection()
@@ -96,6 +98,7 @@ export const ToolBarPlugin = (): JSX.Element => {
             <BoldTextPlugin selectedBoolean={isBold} setSelectedOption={setIsBold} />
             <ItalicsPlugin selectedBoolean={isItalics} setSelectedOption={setIsItalics} />
             <UnderLinePlugin selectedBoolean={isUnderline} setSelectedOption={setIsUnderline} />
+            <CodeBlockPlugin selectedBoolean={isCodeBlock} setSelectedOption={setIsCodeBlock} />
         </div>
     );
 }

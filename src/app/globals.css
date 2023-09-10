@@ -3,18 +3,9 @@
 @tailwind utilities; */
 /* https://coolors.co/9381ff-b8b8ff-f8f7ff-ffeedd-ffd8be */
 
-:root {
-  --primary-color-rgb : 147, 129, 255;
-  --secondary-color-rgb : 184, 184, 255;
-  --debug-background-rgb : 18, 18, 18;
-  --background : 248, 247, 255;
-}
+@import url(css/theme.css);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    
-  }
-}
+
 /* 
 body {
   color: rgb(var(--foreground-rgb));
@@ -27,14 +18,15 @@ body {
 } */
 
 .neo__editor{
-  border: 2px solid rgb(var(--secondary-color-rgb));
+  border: 2px solid var(--md-sys-color-outline-variant);
+  background-color: var(--md-sys-color-surface-container-low);
   border-radius: 8px;
 
 }
 
 .neo__toolbar{
   display: flex;
-  border-bottom: 2px solid rgb(var(--secondary-color-rgb));
+  border-bottom: 2px solid var(--md-sys-color-outline-variant);
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   padding: 0px 8px;
@@ -42,20 +34,42 @@ body {
 }
 
 .neo__dropdown{
-  background-color: aliceblue;
+  background-color: var(--md-sys-color-primary);
   margin: 4px 0px;
-  border-radius: 10px;
+  border-radius: 100px;
 }
 
 .neo__dropdown__item{
-  padding: 8px 12px;
-  border-radius: 8px;
+  padding: 8px 20px;
+  border-radius: 100px;
+  color: var(--md-sys-color-on-primary);
   
 }
 
 .neo__dropdown__wrapper{
   padding: 0;
-  
+  background-color: var(--md-sys-color-primary);
+  border-radius: 100px;
+}
+
+.neo__dropdown__menu > .MuiMenu-paper{
+  background-color: var(--md-sys-color-surface-container);
+  border-radius: 16px;
+  padding: 10px;
+}
+
+.neo__dropdown__menuitem{
+  /* background-color: var(--md-sys-color-secondary-container); */
+  margin: 10px 0;
+  border-radius: 100px;
+  padding: 10px 24px;
+}
+
+.neo__dropdown__menuitem:hover{
+  margin: 10px 0;
+  border-radius: 100px;
+  padding: 10px 24px;
+  background-color: var(--md-sys-color-secondary-container);
 }
 
 .neo__editor__content{
@@ -68,12 +82,12 @@ body {
 }
 
 .neo__divider{
-  border-left: 2px solid rgb(var(--secondary-color-rgb));
+  border-left: 2px solid var(--md-sys-color-outline-variant);
   margin: 6px 4px 6px 4px;
 }
 
 .neo__debugtree{
-  background-color: rgb(var(--debug-background-rgb));
+  background-color: var(--md-ref-palette-primary0);
   color: white;
   padding: 20px;
   border-bottom-left-radius: 8px;
@@ -92,4 +106,9 @@ body {
 
 .neo__textunderline{
   text-decoration: underline;
+}
+
+.neo__textcodeblock{
+  background-color: aliceblue;
+  padding: 8px;
 }

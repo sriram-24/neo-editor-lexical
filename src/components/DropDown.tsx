@@ -46,6 +46,7 @@ function DropDown({ options, executeAction, selectedOption, setSelectedOption, t
                 </ListItem>
             </List>
             <Menu
+                className='neo__dropdown__menu'
                 id="dropdown-menu"
                 anchorEl={anchorEl}
                 open={open}
@@ -57,6 +58,7 @@ function DropDown({ options, executeAction, selectedOption, setSelectedOption, t
             >
                 {options.map((option: Option, index) => (
                     <MenuItem
+                        className='neo__dropdown__menuitem'
                         key={option + index.toString()}
                         selected={index === options.indexOf(selectedOption instanceof Object ? selectedOption : options[0])}
                         onClick={(event) => handleMenuItemClick(event, index)}
