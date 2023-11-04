@@ -18,15 +18,15 @@ body {
 } */
 
 .neo__editor{
-  border: 2px solid var(--md-sys-color-outline-variant);
-  background-color: var(--md-sys-color-surface-container-low);
+  border: 2px solid var(--md-sys-color-outline-variant) !important;
+  background-color: var(--md-sys-color-surface-container-low) !important;
   border-radius: 8px;
 
 }
 
 .neo__toolbar{
   display: flex;
-  border-bottom: 2px solid var(--md-sys-color-outline-variant);
+  border-bottom: 2px solid var(--md-sys-color-outline-variant) !important;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   padding: 0px 8px;
@@ -34,7 +34,7 @@ body {
 }
 
 .neo__dropdown{
-  background-color: var(--md-sys-color-primary);
+  background-color: var(--md-sys-color-primary) !important;
   margin: 4px 0px;
   border-radius: 100px;
   max-height: 35px;
@@ -43,19 +43,20 @@ body {
 .neo__dropdown__item{
   padding: 8px 20px;
   border-radius: 100px;
-  color: var(--md-sys-color-on-primary);
-  max-height: 35px;
+  color: var(--md-sys-color-on-primary) !important;
+  max-height: 35px !important;
   
 }
 
 .neo__editor__content{
-  color: var(--md-sys-color-on-surface);
+  color: var(--md-sys-color-on-surface) !important;
 }
 
 .neo__dropdown__wrapper{
   padding: 0;
-  background-color: var(--md-sys-color-primary);
+  background-color: var(--md-sys-color-primary) !important;
   border-radius: 100px;
+  max-height: 35px !important;
 }
 
 .neo__dropdown__menu > .MuiMenu-paper{
@@ -69,14 +70,14 @@ body {
   margin: 10px 0;
   border-radius: 100px;
   padding: 10px 24px;
-  color: var(--md-sys-color-on-secondary-container);
+  color: var(--md-sys-color-on-secondary-container) !important;
 }
 
 .neo__dropdown__menuitem:hover{
   margin: 10px 0;
   border-radius: 100px;
   padding: 10px 24px;
-  background-color: var(--md-sys-color-secondary-container);
+  background-color: var(--md-sys-color-secondary-container) !important;
 }
 
 .neo__editor__content{
