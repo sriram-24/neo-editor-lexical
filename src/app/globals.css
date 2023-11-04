@@ -37,13 +37,19 @@ body {
   background-color: var(--md-sys-color-primary);
   margin: 4px 0px;
   border-radius: 100px;
+  max-height: 35px;
 }
 
 .neo__dropdown__item{
   padding: 8px 20px;
   border-radius: 100px;
   color: var(--md-sys-color-on-primary);
+  max-height: 35px;
   
+}
+
+.neo__editor__content{
+  color: var(--md-sys-color-on-surface);
 }
 
 .neo__dropdown__wrapper{
@@ -63,6 +69,7 @@ body {
   margin: 10px 0;
   border-radius: 100px;
   padding: 10px 24px;
+  color: var(--md-sys-color-on-secondary-container);
 }
 
 .neo__dropdown__menuitem:hover{
@@ -95,13 +102,35 @@ body {
 }
 
 .neo__button{
-  color: rgba(var(--secondary-color-rgb),1);
+  color: var(--md-sys-color-on-surface);
   margin: 4px 8px;
+  border-radius: 100px;
+  max-height: 35px;
+  padding: 0px 10px;
+  font-family: var(--md-sys-typescale-label-large-font-family-name);
+  font-style: var(--md-sys-typescale-label-large-font-family-style);
+  font-weight: var(--md-sys-typescale-label-large-font-weight);
+  font-size: var(--md-sys-typescale-label-large-font-size);
+  letter-spacing: var(--md-sys-typescale-label-large-tracking);
+  line-height: var(--md-sys-typescale-label-large-height);
+  text-transform: var(--md-sys-typescale-label-large-text-transform);
+  text-decoration: var(--md-sys-typescale-label-large-text-decoration);
 }
 
 .neo__button__selected{
-  color: rgb(var(--primary-color-rgb));
-  background-color: rgba(var(--primary-color-rgb),0.1);
+  background-color: var(--md-sys-color-secondary-container) !important;
+  margin: 4px 8px;
+  border-radius: 100px;
+  max-height: 35px;
+  padding: 0px 10px;
+  font-family: var(--md-sys-typescale-label-large-font-family-name);
+  font-style: var(--md-sys-typescale-label-large-font-family-style);
+  font-weight: var(--md-sys-typescale-label-large-font-weight);
+  font-size: var(--md-sys-typescale-label-large-font-size);
+  letter-spacing: var(--md-sys-typescale-label-large-tracking);
+  line-height: var(--md-sys-typescale-label-large-height);
+  text-transform: var(--md-sys-typescale-label-large-text-transform);
+  text-decoration: var(--md-sys-typescale-label-large-text-decoration);
 }
 
 .neo__textunderline{
