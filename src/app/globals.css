@@ -41,7 +41,7 @@ body {
 }
 
 .neo__dropdown__item{
-  padding: 8px 20px !important;
+  padding: 0px 20px !important;
   border-radius: 100px !important;
   color: var(--md-sys-color-on-primary)  !important;
   max-height: 35px t !important;

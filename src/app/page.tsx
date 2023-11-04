@@ -1,6 +1,6 @@
 "use client";
 import Image from 'next/image'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { EditorState } from 'lexical'
 import { LexicalComposer } from '@lexical/react/LexicalComposer';
 import { AutoFocusPlugin } from '@lexical/react/LexicalAutoFocusPlugin';
@@ -74,7 +74,7 @@ export default function Home() {
                     <OnChangePlugin onChange={onChange} />
                     <AutoFocusPlugin />
                     <HistoryPlugin />
-                    <TreeViewPlugin />
+                    { process.env.NEXT_PUBLIC_DEBUGMODE == "1" ? <TreeViewPlugin /> : <></> }
                 </LexicalComposer>
             </div>
         </>
