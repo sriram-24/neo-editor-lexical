@@ -1,50 +1,50 @@
-/* @tailwind base; */
-/* @tailwind components;
-@tailwind utilities; */
+/* @tailwind base !important; */
+/* @tailwind components !important;
+@tailwind utilities !important; */
 /* https://coolors.co/9381ff-b8b8ff-f8f7ff-ffeedd-ffd8be */
 
-@import url(css/theme.css);
+@import url(css/theme.css) ;
 
 
 /* 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: rgb(var(--foreground-rgb)) !important;
   background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)) !important;
 } */
 
 .neo__editor{
-  border: 2px solid var(--md-sys-color-outline-variant) !important;
-  background-color: var(--md-sys-color-surface-container-low) !important;
-  border-radius: 8px;
+  border: 2px solid var(--md-sys-color-outline-variant)  !important;
+  background-color: var(--md-sys-color-surface-container-low)  !important;
+  border-radius: 8px !important;
 
 }
 
 .neo__toolbar{
-  display: flex;
+  display: flex !important;
   border-bottom: 2px solid var(--md-sys-color-outline-variant) !important;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  padding: 0px 8px;
+  border-top-left-radius: 8px !important;
+  border-top-right-radius: 8px !important;
+  padding: 0px 8px !important;
 
 }
 
 .neo__dropdown{
-  background-color: var(--md-sys-color-primary) !important;
-  margin: 4px 0px;
-  border-radius: 100px;
-  max-height: 35px;
+  background-color: var(--md-sys-color-primary)  !important;
+  margin: 4px 0px !important;
+  border-radius: 100px !important;
+  max-height: 35px !important;
 }
 
 .neo__dropdown__item{
-  padding: 8px 20px;
-  border-radius: 100px;
-  color: var(--md-sys-color-on-primary) !important;
-  max-height: 35px !important;
+  padding: 8px 20px !important;
+  border-radius: 100px !important;
+  color: var(--md-sys-color-on-primary)  !important;
+  max-height: 35px t !important;
   
 }
 
@@ -53,92 +53,92 @@ body {
 }
 
 .neo__dropdown__wrapper{
-  padding: 0;
-  background-color: var(--md-sys-color-primary) !important;
-  border-radius: 100px;
-  max-height: 35px !important;
+  padding: 0 !important;
+  background-color: var(--md-sys-color-primary)  !important;
+  border-radius: 100px !important;
+  max-height: 35px  !important;;
 }
 
 .neo__dropdown__menu > .MuiMenu-paper{
-  background-color: var(--md-sys-color-surface-container);
-  border-radius: 16px;
-  padding: 10px;
+  background-color: var(--md-sys-color-surface-container)  !important;;
+  border-radius: 16px !important;
+  padding: 10px !important;
 }
 
 .neo__dropdown__menuitem{
-  /* background-color: var(--md-sys-color-secondary-container); */
-  margin: 10px 0;
-  border-radius: 100px;
-  padding: 10px 24px;
-  color: var(--md-sys-color-on-secondary-container) !important;
+  /* background-color: var(--md-sys-color-secondary-container) !important; */
+  margin: 10px 0 !important;
+  border-radius: 100px !important;
+  padding: 10px 24px !important;
+  color: var(--md-sys-color-on-secondary-container)  !important;;
 }
 
 .neo__dropdown__menuitem:hover{
-  margin: 10px 0;
-  border-radius: 100px;
-  padding: 10px 24px;
-  background-color: var(--md-sys-color-secondary-container) !important;
+  margin: 10px 0 !important;
+  border-radius: 100px !important;
+  padding: 10px 24px !important;
+  background-color: var(--md-sys-color-secondary-container)  !important;;
 }
 
 .neo__editor__content{
-  padding: 8px;
-  margin: 0px 8px;
+  padding: 8px !important;
+  margin: 0px 8px !important;
 }
 
 .neo__editor__content:focus-visible{
-  outline: none;
+  outline: none !important;
 }
 
 .neo__divider{
-  border-left: 2px solid var(--md-sys-color-outline-variant);
-  margin: 6px 4px 6px 4px;
+  border-left: 2px solid var(--md-sys-color-outline-variant)  !important;;
+  margin: 6px 4px 6px 4px !important;
 }
 
 .neo__debugtree{
-  background-color: var(--md-ref-palette-primary0);
-  color: white;
-  padding: 20px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  background-color: var(--md-ref-palette-primary0) !important;
+  color: white !important;
+  padding: 20px !important;
+  border-bottom-left-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
 }
 
 .neo__button{
-  color: var(--md-sys-color-on-surface);
-  margin: 4px 8px;
-  border-radius: 100px;
-  max-height: 35px;
-  padding: 0px 10px;
-  font-family: var(--md-sys-typescale-label-large-font-family-name);
-  font-style: var(--md-sys-typescale-label-large-font-family-style);
-  font-weight: var(--md-sys-typescale-label-large-font-weight);
-  font-size: var(--md-sys-typescale-label-large-font-size);
-  letter-spacing: var(--md-sys-typescale-label-large-tracking);
-  line-height: var(--md-sys-typescale-label-large-height);
-  text-transform: var(--md-sys-typescale-label-large-text-transform);
-  text-decoration: var(--md-sys-typescale-label-large-text-decoration);
+  color: var(--md-sys-color-on-surface)  !important;;
+  margin: 4px 8px !important;
+  border-radius: 100px !important;
+  max-height: 35px  !important;;
+  padding: 0px 10px !important;
+  font-family: var(--md-sys-typescale-label-large-font-family-name)  !important;;
+  font-style: var(--md-sys-typescale-label-large-font-family-style)  !important;;
+  font-weight: var(--md-sys-typescale-label-large-font-weight)  !important;;
+  font-size: var(--md-sys-typescale-label-large-font-size) !important;
+  letter-spacing: var(--md-sys-typescale-label-large-tracking) !important;
+  line-height: var(--md-sys-typescale-label-large-height) !important;
+  text-transform: var(--md-sys-typescale-label-large-text-transform) !important;
+  text-decoration: var(--md-sys-typescale-label-large-text-decoration) !important;
 }
 
 .neo__button__selected{
   background-color: var(--md-sys-color-secondary-container) !important;
-  margin: 4px 8px;
-  border-radius: 100px;
-  max-height: 35px;
-  padding: 0px 10px;
-  font-family: var(--md-sys-typescale-label-large-font-family-name);
-  font-style: var(--md-sys-typescale-label-large-font-family-style);
-  font-weight: var(--md-sys-typescale-label-large-font-weight);
-  font-size: var(--md-sys-typescale-label-large-font-size);
-  letter-spacing: var(--md-sys-typescale-label-large-tracking);
-  line-height: var(--md-sys-typescale-label-large-height);
-  text-transform: var(--md-sys-typescale-label-large-text-transform);
-  text-decoration: var(--md-sys-typescale-label-large-text-decoration);
+  margin: 4px 8px !important;
+  border-radius: 100px !important;
+  max-height: 35px  !important;;
+  padding: 0px 10px !important;
+  font-family: var(--md-sys-typescale-label-large-font-family-name) !important;
+  font-style: var(--md-sys-typescale-label-large-font-family-style) !important;
+  font-weight: var(--md-sys-typescale-label-large-font-weight) !important;
+  font-size: var(--md-sys-typescale-label-large-font-size) !important;
+  letter-spacing: var(--md-sys-typescale-label-large-tracking) !important;
+  line-height: var(--md-sys-typescale-label-large-height) !important;
+  text-transform: var(--md-sys-typescale-label-large-text-transform) !important;
+  text-decoration: var(--md-sys-typescale-label-large-text-decoration) !important;
 }
 
 .neo__textunderline{
-  text-decoration: underline;
+  text-decoration: underline !important;
 }
 
 .neo__textcodeblock{
-  background-color: aliceblue;
-  padding: 8px;
+  background-color: aliceblue !important;
+  padding: 8px !important;
 }
