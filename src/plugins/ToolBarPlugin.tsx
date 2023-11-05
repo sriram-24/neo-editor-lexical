@@ -1,5 +1,5 @@
 import { Headings, HeadingsPlugin } from "./HeadingsPlugin";
-import { useCallback, useEffect, useState } from "react";
+import { MouseEventHandler, useCallback, useEffect, useState } from "react";
 import { $getSelection, $isRangeSelection, COMMAND_PRIORITY_CRITICAL, SELECTION_CHANGE_COMMAND, LexicalEditor, TextNode, LexicalNode, ParagraphNode } from "lexical";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { HeadingNode } from '@lexical/rich-text'
@@ -12,6 +12,9 @@ import { mergeRegister } from '@lexical/utils'
 import { ItalicsPlugin } from "./ItalicsPlugin";
 import { UnderLinePlugin } from "./UnderlinePlugin";
 import { CodeBlockPlugin } from "./CodeBlockPlugin";
+import LinkToolbarButton from "./LinkToolbarButton";
+import { TOGGLE_LINK_COMMAND } from '@lexical/link'
+import { sanitizeUrl } from "@/utils/url";
 
 
 export const ToolBarPlugin = (): JSX.Element => {
@@ -24,7 +27,7 @@ export const ToolBarPlugin = (): JSX.Element => {
     const [isItalics, setIsItalics] = useState<Boolean>(false);
     const [isUnderline, setIsUnderline] = useState<Boolean>(false);
     const [isCodeBlock, setIsCodeBlock] = useState<Boolean>(false);
-
+    const [isLink, setIsLink] = useState<Boolean>(false);
     const updateToolbar = useCallback(() => {
         const selection = $getSelection()
         if ($isRangeSelection(selection)) {
@@ -81,6 +84,15 @@ export const ToolBarPlugin = (): JSX.Element => {
             ))
     }, [editor, updateToolbar]);
 
+    const insertLink : MouseEventHandler = useCallback(() => {
+        if (!isLink) {
+          editor.dispatchCommand(TOGGLE_LINK_COMMAND, sanitizeUrl('https://'));
+        } else {
+          editor.dispatchCommand(TOGGLE_LINK_COMMAND, null);
+        }
+      }, [editor, isLink]);
+    
+
     return (
 
         <div
@@ -99,6 +111,7 @@ export const ToolBarPlugin = (): JSX.Element => {
             <ItalicsPlugin selectedBoolean={isItalics} setSelectedOption={setIsItalics} />
             <UnderLinePlugin selectedBoolean={isUnderline} setSelectedOption={setIsUnderline} />
             <CodeBlockPlugin selectedBoolean={isCodeBlock} setSelectedOption={setIsCodeBlock} />
+            <LinkToolbarButton executeAcion={insertLink} /> 
         </div>
     );
 }

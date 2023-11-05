@@ -13,6 +13,8 @@ import { ToolBarPlugin } from '@/plugins/ToolBarPlugin';
 import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin'
 import { TreeView } from '@lexical/react/LexicalTreeView'
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
+import { LinkNode } from '@lexical/link'
+import LinkPlugin from '@/plugins/LinkPlugin';
 
 /* 
 * Editor component
@@ -41,7 +43,7 @@ export default function Home() {
         namespace: 'neo-editor',
         theme,
         onError,
-        nodes: [HeadingNode]
+        nodes: [HeadingNode,LinkNode]
     }
 
     const TreeViewPlugin = (): JSX.Element => {
@@ -73,6 +75,7 @@ export default function Home() {
                     />
                     <OnChangePlugin onChange={onChange} />
                     <AutoFocusPlugin />
+                    <LinkPlugin />
                     <HistoryPlugin />
                     { process.env.NEXT_PUBLIC_DEBUGMODE == "1" ? <TreeViewPlugin /> : <></> }
                 </LexicalComposer>

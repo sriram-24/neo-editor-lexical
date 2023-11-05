@@ -1,6 +1,7 @@
 
 import { EditorState } from 'lexical'
 import { HeadingTagType } from '@lexical/rich-text'
+import { MouseEventHandler} from 'react'
 
 export interface OnChangePluginProps {
     onChange: Function
@@ -25,4 +26,8 @@ export interface NeoPluginProps {
     selectedOption?: Option,
     selectedBoolean?: Boolean,
     setSelectedOption: Function
+}
+
+export interface NeoAction{
+    executeAcion : MouseEventHandler
 }

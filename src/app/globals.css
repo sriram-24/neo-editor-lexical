@@ -30,6 +30,7 @@ body {
   border-top-left-radius: 8px !important;
   border-top-right-radius: 8px !important;
   padding: 0px 8px !important;
+  flex-flow:row wrap !important;
 
 }
 
@@ -41,11 +42,34 @@ body {
 }
 
 .neo__dropdown__item{
+  min-height:32px;
   padding: 0px 20px !important;
   border-radius: 100px !important;
   color: var(--md-sys-color-on-primary)  !important;
-  max-height: 35px t !important;
+  max-height: 35px  !important;
+  font-family: var(--md-sys-typescale-label-large-font-family-name)  !important;
+  font-style: var(--md-sys-typescale-label-large-font-family-style)  !important;
+  font-weight: var(--md-sys-typescale-label-large-font-weight)  !important;
+  font-size: var(--md-sys-typescale-label-large-font-size) !important;
+  letter-spacing: var(--md-sys-typescale-label-large-tracking) !important;
+  line-height: var(--md-sys-typescale-label-large-height) !important;
+  text-transform: var(--md-sys-typescale-label-large-text-transform) !important;
+  text-decoration: var(--md-sys-typescale-label-large-text-decoration) !important;
+  display:flex;
+  justify-content:center;
+  align-items:center;
   
+}
+
+.neo__dropdown__item .MuiTypography-root {
+  font-family: var(--md-sys-typescale-label-large-font-family-name)  !important;;
+  font-style: var(--md-sys-typescale-label-large-font-family-style)  !important;;
+  font-weight: var(--md-sys-typescale-label-large-font-weight)  !important;;
+  font-size: var(--md-sys-typescale-label-large-font-size) !important;
+  letter-spacing: var(--md-sys-typescale-label-large-tracking) !important;
+  line-height: var(--md-sys-typescale-label-large-height) !important;
+  text-transform: var(--md-sys-typescale-label-large-text-transform) !important;
+  text-decoration: var(--md-sys-typescale-label-large-text-decoration) !important;
 }
 
 .neo__editor__content{
@@ -60,7 +84,7 @@ body {
 }
 
 .neo__dropdown__menu > .MuiMenu-paper{
-  background-color: var(--md-sys-color-surface-container)  !important;;
+  background-color: var(--md-sys-color-surface-container)  !important;
   border-radius: 16px !important;
   padding: 10px !important;
 }
@@ -70,14 +94,30 @@ body {
   margin: 10px 0 !important;
   border-radius: 100px !important;
   padding: 10px 24px !important;
-  color: var(--md-sys-color-on-secondary-container)  !important;;
+  color: var(--md-sys-color-on-secondary-container)  !important;
+  font-family: var(--md-sys-typescale-label-large-font-family-name)  !important;;
+  font-style: var(--md-sys-typescale-label-large-font-family-style)  !important;;
+  font-weight: var(--md-sys-typescale-label-large-font-weight)  !important;;
+  font-size: var(--md-sys-typescale-label-large-font-size) !important;
+  letter-spacing: var(--md-sys-typescale-label-large-tracking) !important;
+  line-height: var(--md-sys-typescale-label-large-height) !important;
+  text-transform: var(--md-sys-typescale-label-large-text-transform) !important;
+  text-decoration: var(--md-sys-typescale-label-large-text-decoration) !important;
 }
 
 .neo__dropdown__menuitem:hover{
   margin: 10px 0 !important;
   border-radius: 100px !important;
   padding: 10px 24px !important;
-  background-color: var(--md-sys-color-secondary-container)  !important;;
+  background-color: var(--md-sys-color-secondary-container)  !important;
+  font-family: var(--md-sys-typescale-label-large-font-family-name)  !important;;
+  font-style: var(--md-sys-typescale-label-large-font-family-style)  !important;;
+  font-weight: var(--md-sys-typescale-label-large-font-weight)  !important;;
+  font-size: var(--md-sys-typescale-label-large-font-size) !important;
+  letter-spacing: var(--md-sys-typescale-label-large-tracking) !important;
+  line-height: var(--md-sys-typescale-label-large-height) !important;
+  text-transform: var(--md-sys-typescale-label-large-text-transform) !important;
+  text-decoration: var(--md-sys-typescale-label-large-text-decoration) !important;
 }
 
 .neo__editor__content{
