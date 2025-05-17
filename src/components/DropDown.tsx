@@ -1,30 +1,19 @@
 import React, { useState } from 'react'
-import { List, ListItem, ListItemText, Menu, MenuItem } from '@mui/material'
 import { DropdownProps, Option } from '@/typings/pluginPorps';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu';
 
 function DropDown({ options, executeAction, selectedOption, setSelectedOption, title, ariaLabel }: DropdownProps): JSX.Element {
-    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-
-    const open = Boolean(anchorEl);
-    const handleClickListItem = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorEl(event.currentTarget);
-    };
-
     const handleMenuItemClick = (
         event: React.MouseEvent<HTMLElement>,
         index: number,
     ) => {
         setSelectedOption(options[index]);
-        setAnchorEl(null);
         executeAction(event, options[index])
     };
 
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
     return (
         <div className="neo__dropdown">
-            <List
+            {/* <List
                 component="nav"
                 aria-label={title.toString()}
                 sx={{ bgcolor: 'background.paper' }}
@@ -66,7 +55,21 @@ function DropDown({ options, executeAction, selectedOption, setSelectedOption, t
                         {option.value}
                     </MenuItem>
                 ))}
-            </Menu>
+            </Menu> */}
+			<DropdownMenu>
+				<DropdownMenuTrigger className='px-4'>{selectedOption?.value}</DropdownMenuTrigger>
+				<DropdownMenuContent>
+					{options.map((option: Option, index) => (
+                    <DropdownMenuItem
+						 key={option + index.toString()}
+						 aria-selected={index === options.indexOf(selectedOption instanceof Object ? selectedOption : options[0])}
+						 onClick={(event) => handleMenuItemClick(event, index)}
+					>
+                        {option.value}
+                    </DropdownMenuItem>
+                ))}
+				</DropdownMenuContent>
+			</DropdownMenu>
         </div>
     )
 }

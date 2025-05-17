@@ -1,8 +1,8 @@
+import { Button } from "@/components/ui/button";
 import { NeoPluginProps, Option } from "@/typings/pluginPorps";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
-import { Button } from "@mui/material";
+import { TextUnderlineIcon } from "@phosphor-icons/react";
 import { $getSelection, $isRangeSelection, FORMAT_TEXT_COMMAND } from "lexical";
-import FormatUnderlinedOutlinedIcon from '@mui/icons-material/FormatUnderlinedOutlined';
 
 export const UnderLinePlugin = ({ selectedBoolean, setSelectedOption }: NeoPluginProps): JSX.Element => {
 
@@ -14,8 +14,8 @@ export const UnderLinePlugin = ({ selectedBoolean, setSelectedOption }: NeoPlugi
     }
 
     return (
-        <Button color="secondary" className={selectedBoolean ? "neo__button__selected neo__button" : "neo__button"} onClick={onClick}>
-            <FormatUnderlinedOutlinedIcon />
+        <Button color="secondary" className={`${selectedBoolean ? "neo__button__selected neo__button" : "neo__button"} `} onClick={onClick}>
+            <TextUnderlineIcon size={16}/>
         </Button>
     );
 }

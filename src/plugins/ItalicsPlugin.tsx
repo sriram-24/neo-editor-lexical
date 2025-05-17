@@ -1,8 +1,8 @@
+import { Button } from "@/components/ui/button";
 import { NeoPluginProps, Option } from "@/typings/pluginPorps";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
-import { Button } from "@mui/material";
+import { TextItalicIcon } from "@phosphor-icons/react";
 import { $getSelection, $isRangeSelection, FORMAT_TEXT_COMMAND } from "lexical";
-import FormatItalicOutlinedIcon from '@mui/icons-material/FormatItalicOutlined';
 
 export const ItalicsPlugin = ({ selectedBoolean, setSelectedOption }: NeoPluginProps): JSX.Element => {
 
@@ -14,8 +14,8 @@ export const ItalicsPlugin = ({ selectedBoolean, setSelectedOption }: NeoPluginP
     }
 
     return (
-        <Button color="secondary" className={selectedBoolean ? "neo__button__selected neo__button" : "neo__button"} onClick={onClick}>
-            <FormatItalicOutlinedIcon />
+        <Button color="secondary" className={`${selectedBoolean ? "neo__button__selected neo__button" : "neo__button"} `} onClick={onClick}>
+           <TextItalicIcon size={16} />
         </Button>
     );
 }

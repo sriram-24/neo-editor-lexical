@@ -1,8 +1,10 @@
+import { Button } from "@/components/ui/button";
 import { NeoPluginProps, Option } from "@/typings/pluginPorps";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
-import { Button } from "@mui/material";
+import { CodeIcon } from "@phosphor-icons/react";
+
 import { $getSelection, $isRangeSelection, FORMAT_TEXT_COMMAND } from "lexical";
-import CodeOutlinedIcon from '@mui/icons-material/CodeOutlined';
+
 
 export const CodeBlockPlugin = ({ selectedBoolean, setSelectedOption }: NeoPluginProps): JSX.Element => {
 
@@ -14,8 +16,8 @@ export const CodeBlockPlugin = ({ selectedBoolean, setSelectedOption }: NeoPlugi
     }
 
     return (
-        <Button color="secondary" className={selectedBoolean ? "neo__button__selected neo__button" : "neo__button"} onClick={onClick}>
-            <CodeOutlinedIcon />
+        <Button  className={`${selectedBoolean ? "neo__button__selected neo__button" : "neo__button"} `} onClick={onClick}>
+            <CodeIcon size={16} />
         </Button>
     );
 }
