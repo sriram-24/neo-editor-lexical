@@ -57,7 +57,7 @@ function DropDown({ options, executeAction, selectedOption, setSelectedOption, t
                 ))}
             </Menu> */}
 			<DropdownMenu>
-				<DropdownMenuTrigger className='px-4'>{selectedOption?.value}</DropdownMenuTrigger>
+				<DropdownMenuTrigger className='px-4 bg-primary text-primary-foreground shadow hover:bg-primary/90 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none h-9 py-2'>{selectedOption?.value}</DropdownMenuTrigger>
 				<DropdownMenuContent>
 					{options.map((option: Option, index) => (
                     <DropdownMenuItem

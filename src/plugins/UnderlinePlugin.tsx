@@ -14,7 +14,7 @@ export const UnderLinePlugin = ({ selectedBoolean, setSelectedOption }: NeoPlugi
     }
 
     return (
-        <Button color="secondary" className={`${selectedBoolean ? "neo__button__selected neo__button" : "neo__button"} `} onClick={onClick}>
+        <Button className={selectedBoolean ? "neo__button__selected neo__button" : "neo__button"} onClick={onClick}>
             <TextUnderlineIcon size={16}/>
         </Button>
     );

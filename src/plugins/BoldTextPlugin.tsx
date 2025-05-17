@@ -16,7 +16,7 @@ export const BoldTextPlugin = ({ selectedBoolean, setSelectedOption }: NeoPlugin
     }
 
     return (
-        <Button className={`${selectedBoolean ? "neo__button__selected neo__button" : "neo__button"} `} onClick={onClick}>
+        <Button className={selectedBoolean ? "neo__button__selected neo__button" : "neo__button"} onClick={onClick}>
             <TextBIcon size={16} />
         </Button>
     );

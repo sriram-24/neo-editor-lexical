@@ -16,7 +16,7 @@ export const CodeBlockPlugin = ({ selectedBoolean, setSelectedOption }: NeoPlugi
     }
 
     return (
-        <Button  className={`${selectedBoolean ? "neo__button__selected neo__button" : "neo__button"} `} onClick={onClick}>
+        <Button  className={selectedBoolean ? "neo__button__selected neo__button" : "neo__button"} onClick={onClick}>
             <CodeIcon size={16} />
         </Button>
     );
