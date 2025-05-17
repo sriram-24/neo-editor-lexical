@@ -4,7 +4,10 @@ const urlRegExp = new RegExp(
 
 
   export const formatURL = (url : string) : boolean => {
-    return url === "https://" || urlRegExp.test(url)
+    const returnURL =  url === "https://" || urlRegExp.test(url)
+	console.log("returl:"+returnURL);
+	
+	return returnURL
   }
 
   const SUPPORTED_URL_PROTOCOLS = new Set([

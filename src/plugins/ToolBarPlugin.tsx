@@ -38,6 +38,11 @@ export const ToolBarPlugin = (): JSX.Element => {
             const anchorNode: TextNode = selection.anchor.getNode()
             const parentNode = anchorNode.getParent();
             console.log(anchorNode, parentNode);
+			if(isLink){
+				console.log("linked");
+				
+				editor.dispatchCommand(TOGGLE_LINK_COMMAND, anchorNode.__text);
+			}
 
             // Update toolbar if selection is heading node.
 
@@ -63,7 +68,7 @@ export const ToolBarPlugin = (): JSX.Element => {
             }
 
         }
-    }, []);
+    }, [isLink]);
     useEffect(() => {
 
         return mergeRegister(
@@ -85,11 +90,18 @@ export const ToolBarPlugin = (): JSX.Element => {
     }, [editor, updateToolbar]);
 
     const insertLink : MouseEventHandler = useCallback(() => {
-        if (!isLink) {
-          editor.dispatchCommand(TOGGLE_LINK_COMMAND, sanitizeUrl('https://'));
-        } else {
-          editor.dispatchCommand(TOGGLE_LINK_COMMAND, null);
-        }
+		// const selection = $getSelection()
+		// console.log("selection",selection);
+		setIsLink(!isLink)
+		// console.log("isLink:"+isLink);
+		
+        // if (!isLink) {
+        //   editor.dispatchCommand(TOGGLE_LINK_COMMAND, "https://www.google.com");
+        // } else {
+		// 	console.log("elseadd");
+			
+        //   editor.dispatchCommand(TOGGLE_LINK_COMMAND, "https://www.google.com");
+        // }
       }, [editor, isLink]);
     
 
