@@ -1,10 +1,9 @@
 import { Headings, HeadingsPlugin } from "./HeadingsPlugin";
 import { MouseEventHandler, useCallback, useEffect, useState } from "react";
-import { $getSelection, $isRangeSelection, COMMAND_PRIORITY_CRITICAL, SELECTION_CHANGE_COMMAND, LexicalEditor, TextNode, LexicalNode, ParagraphNode } from "lexical";
+import { $getSelection, $isRangeSelection, COMMAND_PRIORITY_CRITICAL, SELECTION_CHANGE_COMMAND, LexicalEditor, TextNode, LexicalNode, ParagraphNode, RootNode } from "lexical";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { HeadingNode } from '@lexical/rich-text'
 import { Option } from "@/typings/pluginPorps";
-import Divider from "@/components/Divider";
 import { FontSizePlugin, FontSizes } from "./FontSizePlugin";
 import { $getSelectionStyleValueForProperty } from '@lexical/selection'
 import { BoldTextPlugin } from "./BoldTextPlugin";
@@ -15,6 +14,7 @@ import { CodeBlockPlugin } from "./CodeBlockPlugin";
 import LinkToolbarButton from "./LinkToolbarButton";
 import { TOGGLE_LINK_COMMAND } from '@lexical/link'
 import { sanitizeUrl } from "@/utils/url";
+import { Separator } from "@/components/ui/separator";
 
 
 export const ToolBarPlugin = (): JSX.Element => {
@@ -56,6 +56,10 @@ export const ToolBarPlugin = (): JSX.Element => {
             if (anchorNode instanceof ParagraphNode) {
                 setHeadingOption(Headings[0])
             }
+			if (parentNode instanceof ParagraphNode && anchorNode instanceof TextNode){
+				setHeadingOption(Headings[0])
+			}
+			
 
             // Update toolbar if selection has font size.
             if ($getSelectionStyleValueForProperty(selection, 'font-size', '15px') !== '15px') {
@@ -114,7 +118,7 @@ export const ToolBarPlugin = (): JSX.Element => {
                 selectedOption={headingOption}
                 setSelectedOption={setHeadingOption}
             />
-            <Divider />
+            <Separator orientation="vertical" className=" my-2 mx-1 h-[22px]" />
             <FontSizePlugin
                 selectedOption={selectedFontSize}
                 setSelectedOption={setFontsize}

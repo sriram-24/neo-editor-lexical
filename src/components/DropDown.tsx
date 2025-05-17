@@ -57,10 +57,11 @@ function DropDown({ options, executeAction, selectedOption, setSelectedOption, t
                 ))}
             </Menu> */}
 			<DropdownMenu>
-				<DropdownMenuTrigger className='px-4 bg-primary text-primary-foreground shadow hover:bg-primary/90 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none h-9 py-2'>{selectedOption?.value}</DropdownMenuTrigger>
+				<DropdownMenuTrigger aria-label={title.toString()}  className='px-4 bg-primary text-primary-foreground shadow hover:bg-primary/90 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none h-9 py-2'>{selectedOption?.value}</DropdownMenuTrigger>
 				<DropdownMenuContent>
 					{options.map((option: Option, index) => (
                     <DropdownMenuItem
+						aria-label={selectedOption instanceof Object ? selectedOption.value.toString() : ""}
 						 key={option + index.toString()}
 						 aria-selected={index === options.indexOf(selectedOption instanceof Object ? selectedOption : options[0])}
 						 onClick={(event) => handleMenuItemClick(event, index)}

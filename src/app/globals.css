@@ -15,9 +15,10 @@
   border-bottom: 2px solid var(--md-sys-color-outline-variant) !important;
   border-top-left-radius: 8px !important;
   border-top-right-radius: 8px !important;
-  padding: 0px 8px !important;
+  padding: 0px 8px 8px 0px !important;
   flex-flow:row wrap !important;
   gap: 6px;
+  margin-bottom: 8px;
 
 }
 .neo__divider{
